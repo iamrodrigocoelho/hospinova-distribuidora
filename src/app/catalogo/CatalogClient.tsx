@@ -1,0 +1,176 @@
+"use client";
+
+import { useState, useMemo } from "react";
+import { Search, Filter, FlaskConical } from "lucide-react";
+import { medications, categorias, laboratorios } from "@/data/catalog";
+
+export default function CatalogClient() {
+  const [search, setSearch] = useState("");
+  const [selectedCategoria, setSelectedCategoria] = useState("Todos");
+  const [selectedLab, setSelectedLab] = useState("Todos");
+
+  const filtered = useMemo(() => {
+    return medications.filter((med) => {
+      const matchSearch =
+        med.nome.toLowerCase().includes(search.toLowerCase()) ||
+        med.principioAtivo.toLowerCase().includes(search.toLowerCase()) ||
+        med.laboratorio.toLowerCase().includes(search.toLowerCase());
+      const matchCat =
+        selectedCategoria === "Todos" || med.categoria === selectedCategoria;
+      const matchLab =
+        selectedLab === "Todos" || med.laboratorio === selectedLab;
+      return matchSearch && matchCat && matchLab;
+    });
+  }, [search, selectedCategoria, selectedLab]);
+
+  return (
+    <section className="py-16 bg-[#F8FAFC]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Filters */}
+        <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 mb-10">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {/* Search */}
+            <div className="relative md:col-span-1">
+              <Search
+                size={18}
+                className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"
+              />
+              <input
+                type="text"
+                placeholder="Buscar por nome, princípio ativo..."
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+                className="w-full pl-10 pr-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:border-[#22A5D9] text-sm text-[#1A2B3C]"
+                aria-label="Buscar medicamento"
+              />
+            </div>
+
+            {/* Categoria */}
+            <div className="relative">
+              <Filter
+                size={18}
+                className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"
+              />
+              <select
+                value={selectedCategoria}
+                onChange={(e) => setSelectedCategoria(e.target.value)}
+                className="w-full pl-10 pr-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:border-[#22A5D9] text-sm text-[#1A2B3C] bg-white appearance-none"
+                aria-label="Filtrar por categoria"
+              >
+                {categorias.map((cat) => (
+                  <option key={cat} value={cat}>
+                    {cat === "Todos" ? "Todas as categorias" : cat}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            {/* Laboratório */}
+            <div className="relative">
+              <FlaskConical
+                size={18}
+                className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"
+              />
+              <select
+                value={selectedLab}
+                onChange={(e) => setSelectedLab(e.target.value)}
+                className="w-full pl-10 pr-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:border-[#22A5D9] text-sm text-[#1A2B3C] bg-white appearance-none"
+                aria-label="Filtrar por laboratório"
+              >
+                {laboratorios.map((lab) => (
+                  <option key={lab} value={lab}>
+                    {lab === "Todos" ? "Todos os laboratórios" : lab}
+                  </option>
+                ))}
+              </select>
+            </div>
+          </div>
+
+          {/* Results count */}
+          <div className="mt-4 flex items-center justify-between">
+            <p className="text-sm text-gray-500">
+              {filtered.length === medications.length
+                ? `Exibindo todos os ${medications.length} produtos (amostra do catálogo)`
+                : `${filtered.length} produto${filtered.length !== 1 ? "s" : ""} encontrado${filtered.length !== 1 ? "s" : ""}`}
+            </p>
+            {(search || selectedCategoria !== "Todos" || selectedLab !== "Todos") && (
+              <button
+                onClick={() => {
+                  setSearch("");
+                  setSelectedCategoria("Todos");
+                  setSelectedLab("Todos");
+                }}
+                className="text-sm text-[#1B6CA8] hover:text-[#0A3D62] font-semibold transition-colors"
+              >
+                Limpar filtros
+              </button>
+            )}
+          </div>
+        </div>
+
+        {/* Grid */}
+        {filtered.length === 0 ? (
+          <div className="text-center py-20">
+            <FlaskConical size={48} className="text-gray-300 mx-auto mb-4" />
+            <h3 className="text-lg font-bold text-[#0A3D62] mb-2">
+              Nenhum produto encontrado
+            </h3>
+            <p className="text-gray-500 text-sm">
+              Tente ajustar os filtros ou entre em contato para verificar disponibilidade.
+            </p>
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            {filtered.map((med) => (
+              <article
+                key={med.id}
+                className="bg-white rounded-2xl border border-gray-100 hover:border-[#22A5D9] hover:shadow-md transition-all duration-300 overflow-hidden flex flex-col"
+              >
+                <div className="h-2 bg-gradient-to-r from-[#0A3D62] to-[#22A5D9]" />
+                <div className="p-5 flex flex-col flex-1">
+                  <div className="mb-3">
+                    <span className="text-xs font-bold text-[#22A5D9] bg-[#22A5D9]/10 px-2 py-0.5 rounded">
+                      {med.categoria}
+                    </span>
+                  </div>
+                  <h2 className="text-base font-bold text-[#0A3D62] mb-1">
+                    {med.nome}
+                  </h2>
+                  <p className="text-xs text-gray-500 mb-1">
+                    <span className="font-semibold">Laboratório:</span> {med.laboratorio}
+                  </p>
+                  <p className="text-xs text-gray-500 mb-1">
+                    <span className="font-semibold">Princípio Ativo:</span>{" "}
+                    {med.principioAtivo}
+                  </p>
+                  <p className="text-xs text-gray-500 mb-4">
+                    <span className="font-semibold">Apresentação:</span>{" "}
+                    {med.apresentacao}
+                  </p>
+                  <div className="mt-auto">
+                    <a
+                      href="/contato"
+                      className="w-full inline-flex items-center justify-center px-4 py-2.5 rounded-lg bg-[#0A3D62] text-white text-sm font-semibold hover:bg-[#1B6CA8] transition-colors duration-200"
+                    >
+                      Solicitar Atendimento
+                    </a>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        )}
+
+        {/* Note */}
+        <div className="mt-12 bg-[#0A3D62]/5 rounded-2xl p-6 border border-[#0A3D62]/10 text-center">
+          <p className="text-sm text-[#1A2B3C]/70">
+            <strong className="text-[#0A3D62]">Nota:</strong> Este catálogo exibe uma
+            amostra representativa dos nossos produtos. Nossa carteira completa conta com
+            mais de 10.000 itens de 200+ laboratórios parceiros. Entre em contato para
+            verificar a disponibilidade de produtos específicos.
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+}
