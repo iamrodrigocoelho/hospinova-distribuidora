@@ -2,7 +2,8 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Menu, X, ChevronDown } from "lucide-react";
+import Image from "next/image";
+import { Menu, X } from "lucide-react";
 
 const navLinks = [
   { label: "Home", href: "/" },
@@ -36,23 +37,17 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2" aria-label="Hospinova - Página Inicial">
-            <div className="flex items-center gap-2">
-              <div
-                className={`w-9 h-9 rounded-lg flex items-center justify-center font-bold text-white text-lg ${
-                  scrolled ? "bg-[#0A3D62]" : "bg-[#22A5D9]"
-                }`}
-              >
-                H
-              </div>
-              <span
-                className={`text-xl font-bold tracking-tight ${
-                  scrolled ? "text-[#0A3D62]" : "text-white"
-                }`}
-              >
-                Hospinova
-              </span>
-            </div>
+          <Link href="/" aria-label="Hospinova - Página Inicial">
+            <Image
+              src="/HOSPINOVA-LOGO-SMALL.png"
+              alt="Hospinova Distribuidora Farmacêutica"
+              width={160}
+              height={64}
+              className={`h-12 w-auto transition-all duration-300 ${
+                scrolled ? "" : "brightness-0 invert"
+              }`}
+              priority
+            />
           </Link>
 
           {/* Desktop Navigation */}

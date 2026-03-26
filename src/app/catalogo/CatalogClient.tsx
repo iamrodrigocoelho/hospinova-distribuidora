@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useMemo } from "react";
+import Image from "next/image";
 import { Search, Filter, FlaskConical } from "lucide-react";
 import { medications, categorias, laboratorios } from "@/data/catalog";
 
@@ -126,7 +127,15 @@ export default function CatalogClient() {
                 key={med.id}
                 className="bg-white rounded-2xl border border-gray-100 hover:border-[#22A5D9] hover:shadow-md transition-all duration-300 overflow-hidden flex flex-col"
               >
-                <div className="h-2 bg-gradient-to-r from-[#0A3D62] to-[#22A5D9]" />
+                <div className="bg-[#F8FAFC] flex items-center justify-center p-6 border-b border-gray-100">
+                  <Image
+                    src="/images/catalogo/caixa-remedio-hospinova.jpg"
+                    alt={med.nome}
+                    width={160}
+                    height={120}
+                    className="h-44 w-auto object-contain"
+                  />
+                </div>
                 <div className="p-5 flex flex-col flex-1">
                   <div className="mb-3">
                     <span className="text-xs font-bold text-[#22A5D9] bg-[#22A5D9]/10 px-2 py-0.5 rounded">
