@@ -35,10 +35,8 @@ const socialLinks = [
 const mainLinks = [
   { label: "Home", href: "/" },
   { label: "Quem Somos", href: "/quem-somos" },
-  { label: "Estrutura", href: "/estrutura" },
   { label: "Como Atuamos", href: "/como-atuamos" },
-  { label: "Catálogo", href: "/catalogo" },
-  { label: "Serviços", href: "/servicos" },
+  { label: "Medicamentos", href: "/medicamentos" },
   { label: "Conteúdos", href: "/conteudos" },
   { label: "Contato", href: "/contato" },
 ];

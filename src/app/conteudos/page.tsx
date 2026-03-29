@@ -11,7 +11,7 @@ export default function ConteudosPage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-gradient-to-br from-[#0A3D62] to-[#1B6CA8] text-white py-20 md:py-28">
+      <section className="bg-gradient-to-br from-[#0A3D62] to-[#1B6CA8] text-white py-4 md:py-6">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <span className="inline-block bg-white/20 text-white text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-6">

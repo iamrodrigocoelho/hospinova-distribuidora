@@ -117,7 +117,7 @@ export default function HomePage() {
     <>
       {/* Hero */}
       <section
-        className="relative bg-gradient-to-br from-[#0A3D62] via-[#1B6CA8] to-[#22A5D9] text-white py-24 md:py-36 overflow-hidden"
+        className="relative bg-gradient-to-br from-[#0A3D62] via-[#1B6CA8] to-[#22A5D9] text-white pt-5 pb-5 md:pt-7 md:pb-7 overflow-hidden"
         aria-label="Seção principal"
       >
         <div className="absolute inset-0 bg-black/10" />
@@ -129,19 +129,18 @@ export default function HomePage() {
               Distribuição Farmacêutica Especializada
             </span>
             <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-              Distribuição inteligente de medicamentos com segurança, agilidade e
-              rastreabilidade para instituições de saúde.
+              Medicamentos de alto custo com segurança e agilidade.
             </h1>
             <p className="text-lg md:text-xl text-blue-100 mb-10 leading-relaxed">
-              Há mais de 15 anos conectando laboratórios e instituições de saúde em todo
-              o Brasil com excelência, tecnologia e compromisso com a vida.
+              A Hospinova atua em todo o Brasil garantindo segurança, integridade 
+              e agilidade no acesso a medicamentos de alto custo.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <CTAButton href="/contato" variant="white">
                 Solicitar Atendimento Comercial
               </CTAButton>
               <Link
-                href="/catalogo"
+                href="/medicamentos"
                 className="inline-flex items-center gap-2 font-semibold px-6 py-3 rounded-lg text-sm md:text-base border-2 border-white text-white hover:bg-white hover:text-[#0A3D62] transition-all duration-200"
               >
                 Ver Catálogo
@@ -244,7 +243,7 @@ export default function HomePage() {
               similar, biológico e importado. Trabalhamos com os principais laboratórios
               do Brasil e do mundo.
             </p>
-            <CTAButton href="/catalogo" variant="white">
+            <CTAButton href="/medicamentos" variant="white">
               Explorar Catálogo Completo <ArrowRight size={18} />
             </CTAButton>
           </div>
@@ -438,7 +437,7 @@ export default function HomePage() {
             <CTAButton href="/contato" variant="white">
               Solicitar Atendimento Comercial <ArrowRight size={18} />
             </CTAButton>
-            <CTAButton href="/catalogo" variant="secondary">
+            <CTAButton href="/medicamentos" variant="secondary">
               Explorar Catálogo
             </CTAButton>
           </div>

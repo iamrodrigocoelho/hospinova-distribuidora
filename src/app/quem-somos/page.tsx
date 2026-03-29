@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Target, Eye, Heart, ShieldCheck, Award, Users } from "lucide-react";
+import { Target, Eye, Heart, ShieldCheck, Award, Users, MapPin, Warehouse, Truck } from "lucide-react";
 import SectionTitle from "@/components/SectionTitle";
 import CTAButton from "@/components/CTAButton";
 
@@ -32,11 +32,32 @@ const valores = [
   },
 ];
 
+const centros = [
+  {
+    cidade: "Rio de Janeiro – RJ",
+    regiao: "Região Sudeste",
+    area: "12.000 m²",
+    desc: "Centro de distribuição principal, com estrutura completa para produtos que necessitam de controle de temperatura, câmaras frias e área segregada para produtos controlados.",
+  },
+  {
+    cidade: "Espírito Santo – ES",
+    regiao: "Região Sudeste",
+    area: "6.500 m²",
+    desc: "Unidade estratégica para atendimento ao Espírito Santo e Bahia, com capacidade para toda a linha de produtos.",
+  },
+  {
+    cidade: "Minas Gerais – MG",
+    regiao: "Região Sudeste",
+    area: "4.800 m²",
+    desc: "Centro logístico que viabiliza a distribuição rápida em todo o Nordeste brasileiro, com adaptações especiais para o clima da região.",
+  },
+];
+
 export default function QuemSomosPage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-gradient-to-br from-[#0A3D62] to-[#1B6CA8] text-white py-20 md:py-28">
+      <section className="bg-gradient-to-br from-[#0A3D62] to-[#1B6CA8] text-white py-4 md:py-6">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <span className="inline-block bg-white/20 text-white text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-6">
@@ -63,36 +84,35 @@ export default function QuemSomosPage() {
                 title="Quem é a Hospinova"
                 tag="Apresentação"
               />
-              <div className="space-y-4 text-[#1A2B3C]/80 leading-relaxed">
+              <div className="space-y-4 text-[#1A2B3C]/80 leading-relaxed text-justify">
                 <p>
-                  A Hospinova é uma distribuidora farmacêutica de capital nacional,
-                  fundada com a missão de transformar a cadeia de abastecimento de
-                  medicamentos para o setor de saúde institucional. Desde a nossa
-                  fundação, atuamos com foco exclusivo no segmento B2B, atendendo
-                  hospitais, clínicas, operadoras de saúde, secretarias estaduais e
-                  municipais de saúde e órgãos governamentais.
+                  Fundada em 2014, a Hospinova, empresa do Grupo Venancio, consolidou-se 
+                  como uma distribuidora nacional de medicamentos de alto custo, atuando 
+                  com o propósito de garantir que o cuidado chegue a quem mais precisa.
                 </p>
                 <p>
-                  Nossa operação está fundamentada em três pilares inegociáveis:
-                  conformidade regulatória, tecnologia de rastreabilidade e suporte
-                  farmacêutico especializado. Esses pilares nos permitem oferecer
-                  muito mais do que a simples entrega de medicamentos — somos parceiros
-                  estratégicos dos nossos clientes na gestão farmacêutica.
+                  Com presença em todo o território brasileiro, atendemos hospitais, clínicas, 
+                  operadoras de saúde e órgãos públicos, oferecendo soluções inovadoras, 
+                  ágeis e seguras em toda a cadeia de distribuição farmacêutica.
                 </p>
                 <p>
-                  Com presença em mais de 25 estados brasileiros e uma carteira de mais
-                  de 200 laboratórios parceiros, a Hospinova é referência no mercado
-                  de distribuição farmacêutica institucional, reconhecida pela
-                  confiabilidade, agilidade e pelo compromisso com a cadeia de cuidado
-                  ao paciente.
+                  Mais do que distribuir medicamentos, participamos ativamente da continuidade 
+                  do cuidado e do tratamento de milhares de pacientes, assegurando excelência em 
+                  armazenamento, transporte e entrega, sempre com rigorosos padrões de qualidade 
+                  e segurança.
+                </p>
+                <p>
+                  Por meio de uma equipe técnica especializada, a Hospinova mantém o compromisso 
+                  permanente com o acesso à saúde, a integridade dos medicamentos e a excelência 
+                  no atendimento, de forma personalizada e confiável.
                 </p>
               </div>
             </div>
             <div className="grid grid-cols-2 gap-4">
               {[
-                { val: "2009", label: "Ano de Fundação" },
-                { val: "15+", label: "Anos de Mercado" },
-                { val: "500+", label: "Colaboradores" },
+                { val: "2014", label: "Ano de Fundação" },
+                { val: "12+", label: "Anos de Mercado" },
+                { val: "100+", label: "Colaboradores" },
                 { val: "R$ 1B+", label: "em produtos distribuídos/ano" },
               ].map(({ val, label }) => (
                 <div
@@ -108,84 +128,8 @@ export default function QuemSomosPage() {
         </div>
       </section>
 
-      {/* História */}
-      <section className="py-20 bg-[#F8FAFC]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionTitle
-            title="Nossa Trajetória"
-            subtitle="Uma história de crescimento, superação e compromisso com a saúde brasileira."
-            centered
-            tag="História"
-          />
-          <div className="max-w-4xl mx-auto">
-            <div className="relative">
-              <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-[#22A5D9]/30 md:-translate-x-1/2" />
-              {[
-                {
-                  ano: "2009",
-                  titulo: "Fundação",
-                  desc: "A Hospinova é fundada em São Paulo com foco exclusivo na distribuição de medicamentos para o setor hospitalar privado.",
-                },
-                {
-                  ano: "2012",
-                  titulo: "Expansão Regional",
-                  desc: "Inauguração do segundo centro de distribuição, no Rio de Janeiro, ampliando a cobertura para toda a Região Sudeste.",
-                },
-                {
-                  ano: "2015",
-                  titulo: "Entrada no Setor Público",
-                  desc: "Início das operações com secretarias estaduais de saúde, desenvolvendo expertise em processos licitatórios e compras governamentais.",
-                },
-                {
-                  ano: "2018",
-                  titulo: "Tecnologia e Rastreabilidade",
-                  desc: "Implementação do sistema proprietário de rastreabilidade integrado ao SNGPC, tornando-nos referência em compliance farmacêutico.",
-                },
-                {
-                  ano: "2021",
-                  titulo: "Cobertura Nacional",
-                  desc: "Atingimos presença em 25 estados brasileiros, com novos centros de distribuição no Nordeste, Centro-Oeste e Sul do país.",
-                },
-                {
-                  ano: "2024",
-                  titulo: "Inovação e Crescimento",
-                  desc: "Lançamento da plataforma digital de gestão para clientes e superação da marca de 1.000 instituições atendidas em todo o Brasil.",
-                },
-              ].map((item, idx) => (
-                <div
-                  key={item.ano}
-                  className={`relative flex items-start gap-6 mb-10 md:w-1/2 ${
-                    idx % 2 === 0 ? "md:ml-auto md:pl-10" : "md:pr-10 md:text-right"
-                  } pl-12 md:pl-0`}
-                >
-                  <div className="absolute left-0 md:left-auto md:right-auto w-8 h-8 rounded-full bg-[#0A3D62] flex items-center justify-center text-xs font-bold text-white flex-shrink-0 md:hidden">
-                    {idx + 1}
-                  </div>
-                  <div
-                    className={`hidden md:flex absolute w-8 h-8 rounded-full bg-[#0A3D62] items-center justify-center text-xs font-bold text-white flex-shrink-0 top-1 ${
-                      idx % 2 === 0 ? "-left-4" : "-right-4"
-                    }`}
-                  >
-                    {idx + 1}
-                  </div>
-                  <div className="bg-white rounded-xl p-5 border border-gray-100 shadow-sm">
-                    <span className="text-xs font-bold text-[#22A5D9] uppercase tracking-wider">
-                      {item.ano}
-                    </span>
-                    <h3 className="text-base font-bold text-[#0A3D62] mt-1 mb-2">
-                      {item.titulo}
-                    </h3>
-                    <p className="text-sm text-[#1A2B3C]/70 leading-relaxed">{item.desc}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Missão, Visão e Valores */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-[#F8FAFC]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionTitle
             title="Missão, Visão e Valores"
@@ -200,9 +144,9 @@ export default function QuemSomosPage() {
               </div>
               <h3 className="text-xl font-bold mb-4">Missão</h3>
               <p className="text-blue-100 leading-relaxed">
-                Distribuir medicamentos com segurança, rastreabilidade e eficiência,
-                contribuindo para a qualidade da assistência farmacêutica e o cuidado
-                com a saúde da população brasileira.
+                Garantir o acesso seguro e ágil a medicamentos de alto custo, com 
+                excelência operacional, qualidade e atendimento personalizado em 
+                toda a cadeia de distribuição farmacêutica.
               </p>
             </div>
             <div className="bg-[#1B6CA8] rounded-2xl p-8 text-white text-center">
@@ -211,9 +155,8 @@ export default function QuemSomosPage() {
               </div>
               <h3 className="text-xl font-bold mb-4">Visão</h3>
               <p className="text-blue-100 leading-relaxed">
-                Ser a distribuidora farmacêutica mais confiável e inovadora do Brasil,
-                reconhecida pela excelência no atendimento ao setor institucional de
-                saúde público e privado.
+                Ser referência nacional na distribuição de medicamentos de alto custo, 
+                reconhecida pela confiança, eficiência, ética e compromisso com a saúde.
               </p>
             </div>
             <div className="bg-[#22A5D9] rounded-2xl p-8 text-white text-center">
@@ -222,9 +165,8 @@ export default function QuemSomosPage() {
               </div>
               <h3 className="text-xl font-bold mb-4">Propósito</h3>
               <p className="text-blue-100 leading-relaxed">
-                Acreditamos que o acesso a medicamentos de qualidade é um direito
-                fundamental. Existimos para garantir que este acesso seja possível em
-                cada canto do Brasil.
+                Contribuir para a continuidade do cuidado em saúde, garantindo acesso seguro, 
+                ágil e confiável a medicamentos de alto custo em todo o Brasil.
               </p>
             </div>
           </div>
@@ -249,8 +191,91 @@ export default function QuemSomosPage() {
         </div>
       </section>
 
-      {/* Governança e Compliance */}
+      {/* Centros de Distribuição */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionTitle
+            title="Centros de Distribuição"
+            subtitle="Três unidades estrategicamente posicionadas nas principais regiões do Brasil garantem cobertura nacional e entregas ágeis."
+            centered
+            tag="Logística"
+          />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {centros.map((centro) => (
+              <div
+                key={centro.cidade}
+                className="bg-[#F8FAFC] rounded-2xl p-6 border border-gray-100 hover:border-[#22A5D9] hover:shadow-md transition-all duration-300"
+              >
+                <div className="flex items-start gap-3 mb-4">
+                  <div className="w-10 h-10 rounded-lg bg-[#0A3D62] flex items-center justify-center flex-shrink-0">
+                    <MapPin size={20} className="text-white" />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-[#0A3D62]">{centro.cidade}</h3>
+                    <span className="text-xs text-[#22A5D9] font-semibold">{centro.regiao}</span>
+                  </div>
+                </div>
+                <p className="text-sm text-[#1A2B3C]/70 leading-relaxed mb-3">{centro.desc}</p>
+                <div className="flex items-center gap-2 mt-2">
+                  <Warehouse size={14} className="text-[#22A5D9]" />
+                  <span className="text-xs font-semibold text-[#0A3D62]">Área: {centro.area}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Cobertura Geográfica Nacional */}
       <section className="py-20 bg-[#F8FAFC]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <SectionTitle title="Cobertura Geográfica Nacional" tag="Abrangência" />
+              <p className="text-[#1A2B3C]/80 leading-relaxed mb-6">
+                A Hospinova atende todos os 26 estados brasileiros e o Distrito Federal,
+                por meio de uma combinação de frota própria e parceiros logísticos
+                certificados. Nossa malha de distribuição foi desenhada para garantir
+                velocidade e segurança, independentemente da localização da instituição.
+              </p>
+              <div className="grid grid-cols-2 gap-4">
+                {[
+                  { val: "26 estados", label: "+ Distrito Federal" },
+                  { val: "5.000+", label: "municípios atendidos" },
+                  { val: "24h", label: "prazo em capitais" },
+                  { val: "72h", label: "prazo no interior" },
+                ].map(({ val, label }) => (
+                  <div key={label} className="bg-white rounded-xl p-4 border border-gray-100 text-center">
+                    <p className="text-xl font-bold text-[#0A3D62]">{val}</p>
+                    <p className="text-xs text-[#1A2B3C]/60 mt-1">{label}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="bg-[#0A3D62] rounded-3xl p-10 text-white">
+              <h3 className="text-xl font-bold mb-6">Nossa Malha Logística</h3>
+              <ul className="space-y-4">
+                {[
+                  "Frota própria refrigerada para medicamentos termolábeis",
+                  "Parceiros logísticos certificados pela Anvisa",
+                  "Monitoramento GPS em tempo real de todos os veículos",
+                  "Roteirização inteligente para otimização de entregas",
+                  "Gestão de última milha em regiões de difícil acesso",
+                  "Plataforma digital de rastreamento para clientes",
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-3">
+                    <Truck size={16} className="text-[#22A5D9] mt-1 flex-shrink-0" />
+                    <span className="text-blue-100 text-sm">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Governança e Compliance */}
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>

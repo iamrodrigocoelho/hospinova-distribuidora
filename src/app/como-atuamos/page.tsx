@@ -237,7 +237,7 @@ export default function ComoAtuamosPage() {
             <CTAButton href="/contato" variant="white">
               Solicitar Atendimento Comercial
             </CTAButton>
-            <CTAButton href="/catalogo" variant="secondary">
+            <CTAButton href="/medicamentos" variant="secondary">
               Ver Catálogo de Produtos
             </CTAButton>
           </div>
