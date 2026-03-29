@@ -117,12 +117,22 @@ export default function HomePage() {
     <>
       {/* Hero */}
       <section
-        className="relative bg-gradient-to-br from-[#0A3D62] via-[#1B6CA8] to-[#22A5D9] text-white pt-5 pb-5 md:pt-7 md:pb-7 overflow-hidden"
+        className="relative text-white min-h-[420px] md:min-h-[500px] lg:min-h-[600px] flex items-center overflow-hidden"
         aria-label="Seção principal"
       >
-        <div className="absolute inset-0 bg-black/10" />
-        <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2" />
-        <div className="absolute bottom-0 left-0 w-64 h-64 bg-white/5 rounded-full translate-y-1/2 -translate-x-1/2" />
+        {/* Banner de fundo */}
+        <div className="absolute inset-0">
+          <picture className="block w-full h-full">
+            <source media="(max-width: 767px)" srcSet="/images/hero-banner-mobile.webp" />
+            <img
+              src="/images/hero-banner.webp"
+              alt=""
+              aria-hidden="true"
+              className="block w-full h-full object-cover object-center"
+            />
+          </picture>
+          <div className="absolute inset-0 bg-[#0A3D62]/60" />
+        </div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <span className="inline-block bg-white/20 text-white text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-6">
@@ -131,14 +141,14 @@ export default function HomePage() {
             <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
               Medicamentos de alto custo com segurança e agilidade.
             </h1>
-            <p className="text-lg md:text-xl text-blue-100 mb-10 leading-relaxed">
-              A Hospinova atua em todo o Brasil garantindo segurança, integridade 
+            {/* <p className="text-lg md:text-xl text-blue-100 mb-10 leading-relaxed">
+              A Hospinova atua em todo o Brasil garantindo segurança, integridade
               e agilidade no acesso a medicamentos de alto custo.
-            </p>
+            </p> */}
             <div className="flex flex-col sm:flex-row gap-4">
-              <CTAButton href="/contato" variant="white">
+             {/*  <CTAButton href="/contato" variant="white">
                 Solicitar Atendimento Comercial
-              </CTAButton>
+              </CTAButton> */}
               <Link
                 href="/medicamentos"
                 className="inline-flex items-center gap-2 font-semibold px-6 py-3 rounded-lg text-sm md:text-base border-2 border-white text-white hover:bg-white hover:text-[#0A3D62] transition-all duration-200"
