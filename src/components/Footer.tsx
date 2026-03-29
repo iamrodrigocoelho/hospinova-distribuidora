@@ -106,6 +106,16 @@ export default function Footer() {
                 </a>
               ))}
             </div>
+            <div className="flex items-center gap-2 mt-5">
+              <span className="text-white/40 text-xs">uma empresa</span>
+              <Image
+                src="/venancio-logo.svg"
+                alt="Venancio"
+                width={80}
+                height={24}
+                className="h-5 w-auto brightness-0 invert opacity-60"
+              />
+            </div>
           </div>
 
           {/* Navigation */}
@@ -183,16 +193,6 @@ export default function Footer() {
       <div className="border-t border-white/10 py-6">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-blue-300">
           <p>© {new Date().getFullYear()} Hospinova Distribuidora Farmacêutica Ltda. Todos os direitos reservados.</p>
-          <div className="flex items-center gap-2">
-            <span className="text-white/40">uma empresa</span>
-            <Image
-              src="/venancio-logo.svg"
-              alt="Venancio"
-              width={80}
-              height={24}
-              className="h-5 w-auto brightness-0 invert opacity-60"
-            />
-          </div>
         </div>
       </div>
     </footer>
