@@ -19,12 +19,10 @@ export default function ContatoPage() {
             <span className="inline-block bg-white/20 text-white text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-6">
               Contato
             </span>
-            <h1 className="text-3xl md:text-5xl font-bold leading-tight mb-6">
+            <h1 className="text-3xl md:text-5xl font-bold leading-tight mb-6 md:whitespace-nowrap">
               Fale com nossa equipe especializada
             </h1>
             <p className="text-lg text-blue-100 leading-relaxed">
-              Nossa equipe comercial está pronta para entender as necessidades da sua
-              instituição e apresentar as melhores soluções em distribuição farmacêutica.
             </p>
           </div>
         </div>
