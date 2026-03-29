@@ -155,14 +155,14 @@ export default function Footer() {
               <p>
                 <strong className="text-white">Sede Administrativa</strong>
                 <br />
-                Av. das Nações Unidas, 12.901
+                Av. Belisário Leite de Andrade Neto, 80
                 <br />
-                São Paulo – SP, CEP 04578-910
+                Rio de Janeiro – RJ, CEP 22621-270
               </p>
               <p>
                 <strong className="text-white">Telefone</strong>
                 <br />
-                (11) 3000-0000
+                (21) 3000-0000
               </p>
               <p>
                 <strong className="text-white">E-mail Comercial</strong>

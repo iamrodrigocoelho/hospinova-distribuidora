@@ -13,7 +13,7 @@ export default function ContatoPage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-gradient-to-br from-[#0A3D62] to-[#1B6CA8] text-white py-20 md:py-28">
+      <section className="bg-gradient-to-br from-[#0A3D62] to-[#1B6CA8] text-white py-4 md:py-6">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <span className="inline-block bg-white/20 text-white text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-6">
@@ -40,7 +40,7 @@ export default function ContatoPage() {
               </div>
               <div>
                 <p className="font-bold text-[#0A3D62]">Atendimento imediato pelo WhatsApp</p>
-                <p className="text-sm text-gray-600">Seg. a Sex., das 8h às 18h</p>
+                <p className="text-sm text-gray-600">Segunda a Sexta, das 8h às 18h</p>
               </div>
             </div>
             <a
@@ -82,9 +82,9 @@ export default function ContatoPage() {
                     <div>
                       <p className="text-xs font-semibold text-[#0A3D62] mb-0.5">Sede Administrativa</p>
                       <p className="text-sm text-[#1A2B3C]/70">
-                        Av. das Nações Unidas, 12.901
+                        Av. Belisário Leite de Andrade Neto, 80
                         <br />
-                        São Paulo – SP, CEP 04578-910
+                        Rio de Janeiro – RJ, CEP 22621-270
                       </p>
                     </div>
                   </div>

@@ -1,14 +1,20 @@
 "use client";
 
-import { useState, FormEvent } from "react";
+import { useState, useRef } from "react";
+import ReCAPTCHA from "react-google-recaptcha";
 import { Send, CheckCircle2 } from "lucide-react";
+
+const RECAPTCHA_SITE_KEY = "6LdiM50sAAAAACXXIEF8CoiPZ-76EbBXHeFLT1ol";
 
 export default function ContatoForm() {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
+  const recaptchaRef = useRef<ReCAPTCHA>(null);
 
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (!recaptchaToken) return;
     setLoading(true);
     // Simulate form submission
     await new Promise((res) => setTimeout(res, 1200));
@@ -210,13 +216,24 @@ export default function ContatoForm() {
             </span>
           </label>
         </div>
+
+        {/* reCAPTCHA */}
+        <div className="md:col-span-2">
+          <ReCAPTCHA
+            ref={recaptchaRef}
+            sitekey={RECAPTCHA_SITE_KEY}
+            onChange={(token) => setRecaptchaToken(token)}
+            onExpired={() => setRecaptchaToken(null)}
+            hl="pt-BR"
+          />
+        </div>
       </div>
 
       <div className="mt-6">
         <button
           type="submit"
-          disabled={loading}
-          className="inline-flex items-center gap-2 bg-[#0A3D62] hover:bg-[#1B6CA8] disabled:opacity-60 text-white font-semibold px-8 py-3 rounded-lg transition-colors duration-200"
+          disabled={loading || !recaptchaToken}
+          className="inline-flex items-center gap-2 bg-[#0A3D62] hover:bg-[#1B6CA8] disabled:opacity-50 disabled:cursor-not-allowed text-white font-semibold px-8 py-3 rounded-lg transition-colors duration-200"
         >
           {loading ? (
             <>
