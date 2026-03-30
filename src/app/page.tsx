@@ -135,12 +135,12 @@ export default function HomePage() {
         </div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <span className="inline-block bg-white/20 text-white text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-6">
+           {/*  <span className="inline-block bg-white/20 text-white text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-6">
               Distribuição Farmacêutica Especializada
-            </span>
-            <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+            </span> */}
+           {/* <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
               Medicamentos de alto custo com segurança e agilidade.
-            </h1>
+            </h1> */}
             {/* <p className="text-lg md:text-xl text-blue-100 mb-10 leading-relaxed">
               A Hospinova atua em todo o Brasil garantindo segurança, integridade
               e agilidade no acesso a medicamentos de alto custo.
